@@ -24,7 +24,7 @@
             android:textStyle="bold"
             android:gravity="center"/>
         <EditText
-            android:id="@+id/poids"
+            android:id="@+id/editText_poids"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Poids"
@@ -45,7 +45,7 @@
             android:textStyle="bold"
             android:gravity="center"/>
         <EditText
-            android:id="@+id/taille"
+            android:id="@+id/editText_taille"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Taille"
@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:text="Résultat:" />
     <TextView
-        android:id="@+id/textView_result"
+        android:id="@+id/textView_result2"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:text="Vous devez cliquer sur le bouton Calculer l'IMC pour obtenir un résultat" />

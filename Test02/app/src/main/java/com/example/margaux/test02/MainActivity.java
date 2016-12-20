@@ -3,6 +3,8 @@ package com.example.margaux.test02;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.View.OnClickListener;
 import android.view.View;
@@ -15,13 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private final String textResultDefaut = "Vous devez cliquer sur le bouton Calculer l'IMC pour obtenir un résultat";
+    private Spanned textResultDefault = null;
     private final String text_mega= "t'es parfait(e)!";
 
     private EditText poids = null;
     private EditText taille = null;
     private RadioGroup radioGroup = null;
-    private RadioButton radioB1 = null;
     private RadioButton radioB2 = null;
     private CheckBox checkB = null;
     private Button button_calcul = null;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             if(checkB.isChecked()){
                 textView_result.setText(text_mega);
             }
-            else if (poids.getText().equals("0") || taille.getText().equals("0")){
+            else if (Double.valueOf(poids.getText().toString())==0 || Double.valueOf(taille.getText().toString())==0){
                 Toast.makeText(MainActivity.this, "Heuuu zéro me parait faible...", Toast.LENGTH_SHORT).show();
             }
             else if (!poids.getText().equals("") && !taille.getText().equals("")){
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             poids.getText().clear();
             taille.getText().clear();
-            textView_result.setText(textResultDefaut);
+            textView_result.setText(textResultDefault);
         }
     };
 
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            textView_result.setText(textResultDefaut);
+            textView_result.setText(textResultDefault);
         }
 
         @Override
@@ -80,14 +81,17 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup.OnCheckedChangeListener checkedChangeListener = new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            textView_result.setText(textResultDefaut);
+            textView_result.setText(textResultDefault);
         }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
+
+        String textResultDefaut1 = getResources().getString(R.string.resultDefault);
+        textResultDefault = Html.fromHtml(textResultDefaut1);
 
         button_calcul=(Button) findViewById(R.id.button_calcul);
         button_calcul.setOnClickListener(clickListener_button_calcul);
@@ -95,20 +99,19 @@ public class MainActivity extends AppCompatActivity {
         button_raz=(Button) findViewById(R.id.button_raz);
         button_raz.setOnClickListener(clickListener_button_raz);
 
-        taille=(EditText) findViewById(R.id.taille);
+        taille=(EditText) findViewById(R.id.editText_taille);
         taille.addTextChangedListener(textwatcher);
 
-        poids = (EditText) findViewById(R.id.poids);
+        poids = (EditText) findViewById(R.id.editText_poids);
         poids.addTextChangedListener(textwatcher);
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(checkedChangeListener);
 
-        //radioB1 = (RadioButton) findViewById(R.id.radioB1);
         radioB2 = (RadioButton) findViewById(R.id.radioB2);
 
         checkB = (CheckBox) findViewById(R.id.checkB);
 
-        textView_result = (TextView) findViewById(R.id.textView_result);
+        textView_result = (TextView) findViewById(R.id.textView_result2);
     }
 }

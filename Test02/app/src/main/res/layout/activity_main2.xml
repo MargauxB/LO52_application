@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical">
 
-</RelativeLayout>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView_poids"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poids :"
+            android:textColor="#FF0000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_alignBaseline="@+id/editText_poids"
+            android:layout_alignParentLeft="true"/>
+        <EditText
+            android:id="@+id/editText_poids"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Poids"
+            android:inputType="numberDecimal"
+            android:layout_toRightOf="@id/textView_poids"
+            android:layout_alignParentRight="true"/>
+
+
+        <TextView
+            android:id="@+id/textView_taille"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Taille :"
+            android:textColor="#FF0000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_alignBaseline="@+id/editText_taille"
+            android:layout_alignLeft="@+id/textView_poids" />
+        <EditText
+            android:id="@+id/editText_taille"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Taille"
+            android:inputType="numberDecimal"
+            android:layout_below="@+id/editText_poids"
+            android:layout_toRightOf="@+id/textView_taille"/>
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:checkedButton="@+id/radioB2"
+            android:layout_below="@id/editText_taille"
+            android:layout_alignLeft="@id/textView_poids"
+            android:layout_marginTop="25dp">
+            <RadioButton
+                android:id="@+id/radioB1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mètres"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
+
+            <RadioButton
+                android:id="@+id/radioB2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:text="Centimètres"/>
+        </RadioGroup>
+        <CheckBox
+            android:id="@+id/checkB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mega fonction!"
+            android:layout_below="@+id/radioGroup"
+            android:layout_alignLeft="@id/radioGroup"
+            android:layout_marginLeft="25dp"/>
+
+
+        <Button
+            android:id="@+id/button_calcul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculer l'IMC"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/checkB"
+            android:layout_alignLeft="@id/textView_poids"/>
+        <Button
+            android:id="@+id/button_raz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RAZ"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_toRightOf="@id/button_calcul"
+            android:layout_alignTop="@id/button_calcul"/>
+
+        <TextView
+            android:id="@+id/textView_result1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/button_calcul"
+            android:textStyle="bold"
+            android:text="Résultat:" />
+        <TextView
+            android:id="@+id/textView_result2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_result1"
+            android:text="@string/resultDefault"/>
+    </RelativeLayout>
+</ScrollView>
