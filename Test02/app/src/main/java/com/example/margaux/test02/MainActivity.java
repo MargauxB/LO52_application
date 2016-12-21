@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkB = null;
     private Button button_calcul = null;
     private Button button_raz = null;
-    private TextView textView_result = null;
+    private TextView textView_result2 = null;
 
 
     private OnClickListener clickListener_button_calcul = new OnClickListener() {
         @Override
         public void onClick(View v) {
             if(checkB.isChecked()){
-                textView_result.setText(text_mega);
+                textView_result2.setText(text_mega);
             }
             else if (Double.valueOf(poids.getText().toString())==0 || Double.valueOf(taille.getText().toString())==0){
                 Toast.makeText(MainActivity.this, "Heuuu zéro me parait faible...", Toast.LENGTH_SHORT).show();
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     taille_d = taille_d/100;
                 }
                 Double imc = poids_d/taille_d;
-                textView_result.setText("Votre IMC est de : "+imc);
+                textView_result2.setText(getResources().getString(R.string.result_imc,imc));
             }
         }
     };
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             poids.getText().clear();
             taille.getText().clear();
-            textView_result.setText(textResultDefault);
+            textView_result2.setText(textResultDefault);
         }
     };
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            textView_result.setText(textResultDefault);
+            textView_result2.setText(textResultDefault);
         }
 
         @Override
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup.OnCheckedChangeListener checkedChangeListener = new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            textView_result.setText(textResultDefault);
+            textView_result2.setText(textResultDefault);
         }
     };
 
@@ -91,7 +91,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         String textResultDefaut1 = getResources().getString(R.string.resultDefault);
-        textResultDefault = Html.fromHtml(textResultDefaut1);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            textResultDefault = Html.fromHtml(textResultDefaut1,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            textResultDefault = Html.fromHtml(textResultDefaut1);
+        }
 
         button_calcul=(Button) findViewById(R.id.button_calcul);
         button_calcul.setOnClickListener(clickListener_button_calcul);
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
         checkB = (CheckBox) findViewById(R.id.checkB);
 
-        textView_result = (TextView) findViewById(R.id.textView_result2);
+        textView_result2 = (TextView) findViewById(R.id.textView_result2);
+        textView_result2.setText(textResultDefault);
     }
 }

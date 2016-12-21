@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Test02</string>
-    <string name="resultDefault">[CDATA[Vous devez cliquer sur le bouton <b>Calculer l\'IMC</b> pour <i>obtenir un résultat</i>]]</string>
+    <string name="resultDefault"><![CDATA[Vous devez cliquer sur le bouton <b>Calculer l\'IMC</b> pour obtenir un résultat]]></string>
+    <string name="result_imc">Votre IMC est de %1$.2f:</string>
 </resources>
