@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">test03 Bloc Note</string>
+    <string name="app_name">Bloc Note</string>
+
+    <string name="string_button1"><![CDATA[<b>Gras</b>]]></string>
+    <string name="string_button2"><![CDATA[<i>Italique</i>]]></string>
+    <string name="string_button3"><![CDATA[<u>Souligné</u>]]></string>
+
+    <string name="color1">Noir</string>
+    <string name="color2">Bleu</string>
+    <string name="color3">Rouge</string>
+
+    <string name="smiley_title">Smileys: </string>
+
+    <string name="string_buttonShowHide_Hide">Cacher</string>
+    <string name="string_buttonShowHide_Show">Afficher</string>
+
+    <string name="edit_title">Édition :</string>
+    <string name="Prévisualisation_title">Prévisualisation :</string>
+
 </resources>

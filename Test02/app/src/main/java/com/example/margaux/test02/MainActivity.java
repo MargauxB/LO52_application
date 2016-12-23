@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 if (radioB2.isChecked()){
                     taille_d = taille_d/100;
                 }
-                Double imc = poids_d/taille_d;
+                Double imc = poids_d/(taille_d*taille_d);
                 textView_result2.setText(getResources().getString(R.string.result_imc,imc));
             }
         }

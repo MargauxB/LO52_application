@@ -3,4 +3,22 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="myBackgroundColor">#EFECCA</color>
+
+    <color name="myButtonStyleColor">#002F2F</color>
+    <color name="myButtonShowHideColor">#046380</color>
+    <color name="myButtonTextColor">#E6E2AF</color>
+
+    <color name="myTextColor">#A7A37E</color>
+
+    <color name="color1">#000000</color>
+    <color name="color2">#0024D9</color>
+    <color name="color3">#F40000</color>
+
+    <color name="color_separator">#A7A37E</color>
+
+    <color name="textEditBackgroundcolor">#FEFEFE</color>
+
+    <color name="translucide">#00000000</color>
 </resources>
