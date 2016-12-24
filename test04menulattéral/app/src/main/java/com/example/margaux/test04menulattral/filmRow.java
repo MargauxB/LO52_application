@@ -14,10 +14,10 @@ public class FilmRow {
     String year;
     String producer;
     String[] types;
-    String[] actors;
+    String actors;
     String synopsis;
 /*Constructor*/
-    public FilmRow(String name,Drawable poster, String year, String producer, String[] actors, String[] types, String synopsis) {
+    public FilmRow(String name,Drawable poster, String year, String producer, String actors, String[] types, String synopsis) {
         this.synopsis = synopsis;
         this.actors = actors;
         this.name = name;
@@ -68,11 +68,11 @@ public class FilmRow {
         this.types = types;
     }
 
-    public String[] getActors() {
+    public String getActors() {
         return actors;
     }
 
-    public void setActors(String[] actors) {
+    public void setActors(String actors) {
         this.actors = actors;
     }
 
@@ -80,9 +80,7 @@ public class FilmRow {
         return synopsis;
     }
 
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
+    public void setSynopsis(String synopsis) { this.synopsis = synopsis;}
 
 
 }

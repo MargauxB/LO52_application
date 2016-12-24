@@ -1,6 +1,7 @@
 package com.example.margaux.test04menulattral;
 
 import android.content.Context;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,23 +49,27 @@ public class FilmAdapter extends BaseAdapter {
         }
 
         TextView film_name = (TextView)convertView.findViewById(R.id.film_name);
-        film_name.setText(entry.getName());
+        film_name.setText(Media.fromMyHtml("<![CDATA["+entry.getName()+"]]>"));
 
         ImageView film_poster = (ImageView)convertView.findViewById(R.id.film_poster);
         film_poster.setImageDrawable(entry.getPoster());
 
         TextView film_year = (TextView)convertView.findViewById(R.id.film_year);
-        film_year.setText("Année : "+entry.getYear());
+        film_year.setText(Media.fromMyHtml("<b>Année : </b>"+entry.getYear()));
 
         TextView film_producer = (TextView)convertView.findViewById(R.id.film_producer);
-        film_producer.setText("Réalisateur : "+entry.getProducer());
+        film_producer.setText(Media.fromMyHtml("<b>Réalisateur : </b>"+entry.getProducer()));
 
         TextView film_actors = (TextView)convertView.findViewById(R.id.film_actors);
-        film_actors.setText("Acteurs : "+entry.getActors());
+        film_actors.setText(Media.fromMyHtml("<p><b>Acteurs : </b></p><ul>"+entry.getActors()+"</ul>"));
 
         TextView film_type = (TextView)convertView.findViewById(R.id.film_type);
-        film_type.setText("Genre : "+entry.getTypes());
+        film_type.setText(Media.fromMyHtml("<b>Genre : </b>"+entry.getTypes()));
+
+        TextView film_synopsis = (TextView)convertView.findViewById(R.id.film_resume);
+        film_synopsis.setText(Media.fromMyHtml("<b>Résumé :</b><br/>"+entry.getSynopsis()));
 
         return convertView;
     }
+
 }
