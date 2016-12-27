@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +25,7 @@ public class Media {
     private static final String TAG = Media.class.getSimpleName();
 
     List<FilmRow> films = new ArrayList<FilmRow>() ;
+    List<MusicRow> musics = new ArrayList<MusicRow>() ;
 
     Media(Context context){
         Log.d(TAG, "Media() début ");
@@ -31,44 +33,66 @@ public class Media {
         films.add(
             new FilmRow(
                     "The Imitation Game",
-                    getPoster(context,R.drawable.imitation_game),
+                    getPoster(context, R.drawable.imitation_game),
                     "2014",
                     "Morten Tyldum",
-                    "<li>Benedict Cumberbatch</li>"+
-                    "<li>Keira Knightley</li>"+
-                    "<li>Matthew Goode</li>"+
-                    "<li>Mark Strong</li>"+
-                    "<li>Rory Kinnear</li>"+
-                    "<li>Charles Dance</li>"+
-                    "<li>Allen Leech</li>"+
-                    "<li>Matthew Beard</li>",
-                    new String[]{
-                            "Drame",
-                            "Biopic"},
+                    new ArrayList<String>(Arrays.asList(
+                        "Benedict Cumberbatch"
+                        ,"Keira Knightley"
+                        ,"Matthew Goode"
+                        ,"Mark Strong"
+                        ,"Rory Kinnear"
+                        ,"Charles Dance"
+                        ,"Allen Leech"
+                        ,"Matthew Beard")),
+                    new ArrayList<String>(Arrays.asList(
+                            "Drame"
+                            ,"Biopic")),
                     "1940 : Alan Turing, mathématicien, cryptologue, est chargé par le gouvernement Britannique de percer le secret de la célèbre machine de cryptage allemande Enigma, réputée inviolable."
             )
         );
         films.add(
-                new FilmRow(
-                        "The Imitation Game",
-                        getPoster(context,R.drawable.imitation_game),
-                        "2014",
-                        "Morten Tyldum",
-                        "<li>Benedict Cumberbatch</li>"+
-                                "<li>Keira Knightley</li>"+
-                                "<li>Matthew Goode</li>"+
-                                "<li>Mark Strong</li>"+
-                                "<li>Rory Kinnear</li>"+
-                                "<li>Charles Dance</li>"+
-                                "<li>Allen Leech</li>"+
-                                "<li>Matthew Beard</li>",
-                        new String[]{
-                                "Drame",
-                                "Biopic"},
-                        "1940 : Alan Turing, mathématicien, cryptologue, est chargé par le gouvernement Britannique de percer le secret de la célèbre machine de cryptage allemande Enigma, réputée inviolable."
-                )
+            new FilmRow(
+                    "V pour Vendetta",
+                    getPoster(context,R.drawable.v_pour_vendetta),
+                    "2006",
+                    "James McTeigue",
+                    new ArrayList<String>(Arrays.asList(
+                        "Natalie Portman"
+                        ,"Hugo Weaving"
+                        ,"Stephen Rea"
+                        ,"Stephen Fry"
+                        ,"Sinéad Cusack"
+                        ,"Rupert Graves"
+                        ,"Roger Allam"
+                        ,"John Hurt")),
+                    new ArrayList<String>(Arrays.asList(
+                        "Science fiction"
+                        ,"Fantastique "
+                        ,"Thriller "
+                        ,"Action")),
+                    "Londres, au 21ème siècle...\n" +
+                        "Evey Hammond ne veut rien oublier de l'homme qui lui sauva la vie et lui permit de dominer ses peurs les plus lointaines. Mais il fut un temps où elle n'aspirait qu'à l'anonymat pour échapper à une police secrète omnipotente. Comme tous ses concitoyens, trop vite soumis, elle acceptait que son pays ait perdu son âme et se soit donné en masse au tyran Sutler et à ses partisans.\n" +
+                        "Une nuit, alors que deux \"gardiens de l'ordre\" s'apprêtaient à la violer dans une rue déserte, Evey vit surgir son libérateur. Et rien ne fut plus comme avant.\n" +
+                        "Son apprentissage commença quelques semaines plus tard sous la tutelle de \"V\".\n" +
+                        "Evey ne connaîtrait jamais son nom et son passé, ne verrait jamais son visage atrocement brûlé et défiguré, mais elle deviendrait à la fois son unique disciple, sa seule amie et le seul amour d'une vie sans amour..."
+            )
         );
-        Log.d(TAG, "Media() film ajouté ");
+        Log.d(TAG, "Media() films ajoutés ");
+
+        /*MUSIQUES*/
+        musics.add(
+                new MusicRow(
+                        "Grandpa's Groove"
+                        ,getPoster(context,R.drawable.grandpa_s_groove)
+                        ,"2016"
+                        ,"Parov Stelar"
+                        ,new ArrayList<String>(Arrays.asList(
+                            "AronChupa"))
+                        ,new ArrayList<String>(Arrays.asList(
+                            "Dance"))
+                        ,null
+                ));
 
     }
 
@@ -76,14 +100,21 @@ public class Media {
         return ContextCompat.getDrawable(context,id);
     }
 
+
     public List<FilmRow> getFilms(){
         Log.d(TAG, "getFilms() début ");
 
         return films;
     }
 
-    public static String fromMyHtml(String html){
+    public List<MusicRow> getMusics(){
+        Log.d(TAG, "getMusics() début ");
 
+        return musics;
+    }
+
+    public static Spanned fromMyHtml(String html){
+        //html = String.format(("<![CDATA["+html+"]]>"));;
         Spanned result;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
@@ -91,6 +122,21 @@ public class Media {
             result = Html.fromHtml(html);
         }
         Log.d(TAG, "transfo de :"+html+" en :"+result);
-        return result.toString();
+        return result;
+    }
+
+    public static String setToDotList(List<String> list){
+        String myString="";
+        for (String s:list) {
+            myString+="<br/>&#x9• "+s;
+        }
+        return myString;
+    }
+    public static String setToLinearList(List<String> list){
+        String myString="<br/>   ";
+        for (String s:list) {
+            myString+=s+", ";
+        }
+        return myString.substring(0, myString.length()-3);//enlève la dernière virgule
     }
 }

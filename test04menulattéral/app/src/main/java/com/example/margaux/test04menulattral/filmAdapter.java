@@ -49,7 +49,7 @@ public class FilmAdapter extends BaseAdapter {
         }
 
         TextView film_name = (TextView)convertView.findViewById(R.id.film_name);
-        film_name.setText(Media.fromMyHtml("<![CDATA["+entry.getName()+"]]>"));
+        film_name.setText(Media.fromMyHtml(entry.getName()));
 
         ImageView film_poster = (ImageView)convertView.findViewById(R.id.film_poster);
         film_poster.setImageDrawable(entry.getPoster());
@@ -61,10 +61,10 @@ public class FilmAdapter extends BaseAdapter {
         film_producer.setText(Media.fromMyHtml("<b>Réalisateur : </b>"+entry.getProducer()));
 
         TextView film_actors = (TextView)convertView.findViewById(R.id.film_actors);
-        film_actors.setText(Media.fromMyHtml("<p><b>Acteurs : </b></p><ul>"+entry.getActors()+"</ul>"));
+        film_actors.setText(Media.fromMyHtml("<b>Acteurs : </b>"+Media.setToDotList(entry.getActors())));
 
         TextView film_type = (TextView)convertView.findViewById(R.id.film_type);
-        film_type.setText(Media.fromMyHtml("<b>Genre : </b>"+entry.getTypes()));
+        film_type.setText(Media.fromMyHtml("<b>Genre : </b>"+Media.setToLinearList(entry.getTypes())));
 
         TextView film_synopsis = (TextView)convertView.findViewById(R.id.film_resume);
         film_synopsis.setText(Media.fromMyHtml("<b>Résumé :</b><br/>"+entry.getSynopsis()));

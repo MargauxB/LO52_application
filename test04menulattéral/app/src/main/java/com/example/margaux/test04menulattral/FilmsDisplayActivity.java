@@ -22,7 +22,7 @@ public class FilmsDisplayActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "OnCreate()");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.films_display);
+        setContentView(R.layout.medias_display);
         Log.d(TAG, "OnCreate() -- setcontent(film_display)");
 
         listMedia = (ListView)findViewById(R.id.list_media);

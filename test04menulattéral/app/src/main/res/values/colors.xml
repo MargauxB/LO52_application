@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorLight">#61fe35</color>
+    <color name="colorLight">#e1d1bc</color>
     <color name="colorDark">#5456af</color>
     <color name="colorMedium">#3498db</color>
 
@@ -9,9 +9,7 @@
     <color name="colorAccent">#FF4081</color>
 
 
-
-
-    <color name="colorBackgroundSubtitle">@color/colorLight</color>
-    <color name="colorTextSubtitle">@color/colorDark</color>
-    <color name="colorBackgroundPoster">@color/colorLight</color>
+    <color name="colorBackgroundSubtitle">@color/colorMedium</color>
+    <color name="colorTextSubtitle">@color/colorLight</color>
+    <color name="colorBackgroundPoster">@color/colorMedium</color>
 </resources>

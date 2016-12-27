@@ -4,6 +4,8 @@ import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.widget.ImageView;
 
+import java.util.List;
+
 /**
  * Created by margaux on 23/12/2016.
  */
@@ -13,11 +15,11 @@ public class FilmRow {
     Drawable poster;
     String year;
     String producer;
-    String[] types;
-    String actors;
+    List<String> types;
+    List<String> actors;
     String synopsis;
 /*Constructor*/
-    public FilmRow(String name,Drawable poster, String year, String producer, String actors, String[] types, String synopsis) {
+    public FilmRow(String name,Drawable poster, String year, String producer, List<String> actors, List<String> types, String synopsis) {
         this.synopsis = synopsis;
         this.actors = actors;
         this.name = name;
@@ -60,20 +62,22 @@ public class FilmRow {
         this.producer = producer;
     }
 
-    public String[] getTypes() {
+    public List<String> getTypes() {
         return types;
     }
 
-    public void setTypes(String[] types) {
-        this.types = types;
-    }
+    public void setTypes(List<String> types) {this.types = types;}
 
-    public String getActors() {
+    public List<String> getActors() {
         return actors;
     }
 
-    public void setActors(String actors) {
+    public void setActors(List<String> actors) {
         this.actors = actors;
+    }
+    public void setActors(String actor) {
+        this.actors.removeAll(actors);
+        this.actors.add(actor);
     }
 
     public String getSynopsis() {
