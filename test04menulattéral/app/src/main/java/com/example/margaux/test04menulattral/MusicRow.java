@@ -18,9 +18,9 @@ public class MusicRow {
     String main_artist;
     List<String> artists;
     List<String> types;
-    YouTubePlayerView clip;
+    String clip;
 
-    public MusicRow(String name, Drawable poster, String year, String main_artist, List<String> artists, List<String> types, YouTubePlayerView clip) {
+    public MusicRow(String name, Drawable poster, String year, String main_artist, List<String> artists, List<String> types, String clip) {
         this.name = name;
         this.poster = poster;
         this.year = year;
@@ -38,11 +38,11 @@ public class MusicRow {
         this.poster = poster;
     }
 
-    public YouTubePlayerView getClip() {
+    public String getClip() {
         return clip;
     }
 
-    public void setClip(YouTubePlayerView clip) {
+    public void setClip(String clip) {
         this.clip = clip;
     }
 

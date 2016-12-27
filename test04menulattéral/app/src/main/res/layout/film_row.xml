@@ -66,7 +66,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="ceci sera le résumé du film qui prendra tout plein de place parfois et puis parfois non.
-    Mais parfois si quand même donc il faut faire attention."/>
+Mais parfois si quand même donc il faut faire attention."/>
+            <Button
+                android:id="@+id/film_bandeAnnonce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Voir la Bande Annonce"/>
         </LinearLayout>
     </LinearLayout>
 

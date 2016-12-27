@@ -2,6 +2,7 @@ package com.example.margaux.test04menulattral;
 
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.List;
@@ -18,16 +19,22 @@ public class FilmRow {
     List<String> types;
     List<String> actors;
     String synopsis;
-/*Constructor*/
-    public FilmRow(String name,Drawable poster, String year, String producer, List<String> actors, List<String> types, String synopsis) {
-        this.synopsis = synopsis;
-        this.actors = actors;
+    String trailer;
+
+        /*Constructor*/
+    public FilmRow(String name, Drawable poster, String year, String producer, List<String> types, List<String> actors, String synopsis, String trailer) {
         this.name = name;
         this.poster = poster;
         this.year = year;
         this.producer = producer;
         this.types = types;
+        this.actors = actors;
+        this.synopsis = synopsis;
+        this.trailer = trailer;
     }
+
+
+
 /*Getters & Setters*/
 
     public String getName() {
@@ -66,7 +73,9 @@ public class FilmRow {
         return types;
     }
 
-    public void setTypes(List<String> types) {this.types = types;}
+    public void setTypes(List<String> types) {
+        this.types = types;
+    }
 
     public List<String> getActors() {
         return actors;
@@ -75,16 +84,20 @@ public class FilmRow {
     public void setActors(List<String> actors) {
         this.actors = actors;
     }
-    public void setActors(String actor) {
-        this.actors.removeAll(actors);
-        this.actors.add(actor);
-    }
 
     public String getSynopsis() {
         return synopsis;
     }
 
-    public void setSynopsis(String synopsis) { this.synopsis = synopsis;}
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
 
+    public String getTrailer() {
+        return trailer;
+    }
 
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
 }

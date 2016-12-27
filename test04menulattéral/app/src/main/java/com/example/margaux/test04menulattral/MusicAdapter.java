@@ -1,10 +1,12 @@
 package com.example.margaux.test04menulattral;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -44,7 +46,7 @@ public class MusicAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent)  {
-        MusicRow entry = myListMusicRow.get(position);
+        final MusicRow entry = myListMusicRow.get(position);
         if(convertView==null){
             LayoutInflater inflater = LayoutInflater.from(myContext);
             convertView = inflater.inflate(R.layout.music_row,null);
@@ -68,8 +70,16 @@ public class MusicAdapter extends BaseAdapter {
         TextView music_type = (TextView)convertView.findViewById(R.id.music_type);
         music_type.setText(Media.fromMyHtml("<b>Genre : </b>"+Media.setToLinearList(entry.getTypes())));
 
-        YouTubePlayerView music_clip = (YouTubePlayerView) convertView.findViewById(R.id.music_clip);
-        music_clip.initialize("R.string.API_KEY", this);
+        Button music_clip = (Button)convertView.findViewById(R.id.music_clip);
+        music_clip.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(myContext, VideoViewer.class);
+                String videoID = entry.getClip();
+                intent.putExtra("myVideoID",videoID);
+                myContext.startActivity(intent);
+            }
+        });
 
 
 

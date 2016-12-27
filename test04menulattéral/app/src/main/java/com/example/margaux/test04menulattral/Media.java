@@ -49,6 +49,7 @@ public class Media {
                             "Drame"
                             ,"Biopic")),
                     "1940 : Alan Turing, mathématicien, cryptologue, est chargé par le gouvernement Britannique de percer le secret de la célèbre machine de cryptage allemande Enigma, réputée inviolable."
+                    , "S5CjKEFb-sM"
             )
         );
         films.add(
@@ -76,6 +77,7 @@ public class Media {
                         "Une nuit, alors que deux \"gardiens de l'ordre\" s'apprêtaient à la violer dans une rue déserte, Evey vit surgir son libérateur. Et rien ne fut plus comme avant.\n" +
                         "Son apprentissage commença quelques semaines plus tard sous la tutelle de \"V\".\n" +
                         "Evey ne connaîtrait jamais son nom et son passé, ne verrait jamais son visage atrocement brûlé et défiguré, mais elle deviendrait à la fois son unique disciple, sa seule amie et le seul amour d'une vie sans amour..."
+                    ,"qxyUl9M_7vc"
             )
         );
         Log.d(TAG, "Media() films ajoutés ");
@@ -91,7 +93,6 @@ public class Media {
                             "AronChupa"))
                         ,new ArrayList<String>(Arrays.asList(
                             "Dance"))
-                        ,null
                 ));
 
     }

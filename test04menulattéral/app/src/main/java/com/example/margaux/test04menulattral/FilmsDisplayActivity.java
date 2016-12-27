@@ -14,32 +14,21 @@ import java.util.List;
  */
 
 public class FilmsDisplayActivity extends Activity{
-    public Context context;
     public ListView listMedia;
-    private static final String TAG = FilmsDisplayActivity.class.getSimpleName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "OnCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.medias_display);
-        Log.d(TAG, "OnCreate() -- setcontent(film_display)");
-
         listMedia = (ListView)findViewById(R.id.list_media);
-        Log.d(TAG, "OnCreate() -- listMedia <-- listView");
 
         Media myMedia = new Media(this);
-        Log.d(TAG, "OnCreate()-- Media(this)");
 
         List<FilmRow> filmRowList= new ArrayList<FilmRow>();
-        Log.d(TAG, "OnCreate() -- ");
 
         filmRowList.addAll(myMedia.getFilms());
-        Log.d(TAG, "OnCreate() -- filmListRow.addAll()");
 
         FilmAdapter filmAdapter = new FilmAdapter(this, filmRowList);
         listMedia.setAdapter(filmAdapter);
-        Log.d(TAG, "OnCreate() -- adapter");
-
     }
 }

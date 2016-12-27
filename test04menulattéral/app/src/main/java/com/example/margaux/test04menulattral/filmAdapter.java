@@ -1,11 +1,13 @@
 package com.example.margaux.test04menulattral;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,7 +44,7 @@ public class FilmAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        FilmRow entry = myListFilmRow.get(position);
+        final FilmRow entry = myListFilmRow.get(position);
         if(convertView==null){
             LayoutInflater inflater = LayoutInflater.from(myContext);
             convertView = inflater.inflate(R.layout.film_row,null);
@@ -68,6 +70,17 @@ public class FilmAdapter extends BaseAdapter {
 
         TextView film_synopsis = (TextView)convertView.findViewById(R.id.film_resume);
         film_synopsis.setText(Media.fromMyHtml("<b>Résumé :</b><br/>"+entry.getSynopsis()));
+
+        Button film_bandeAnnonce = (Button)convertView.findViewById(R.id.film_bandeAnnonce);
+        film_bandeAnnonce.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(myContext, VideoViewer.class);
+                String videoID = entry.getTrailer();
+                intent.putExtra("myVideoID",videoID);
+                myContext.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
