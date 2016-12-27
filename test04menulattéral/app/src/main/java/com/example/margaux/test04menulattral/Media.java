@@ -97,15 +97,16 @@ public class Media {
                 ));
         musics.add(
                 new MusicRow(
-                        "Grandpa's Groove"
-                        ,getPoster(context,R.drawable.grandpa_s_groove)
+                        "La Gozadera"
+                        ,getPoster(context,R.drawable.la_gozadera)
                         ,"2016"
-                        ,"Parov Stelar"
+                        ,"Gente de Zona"
                         ,new ArrayList<String>(Arrays.asList(
-                        "AronChupa"))
+                        "Marc Anthony"))
                         ,new ArrayList<String>(Arrays.asList(
-                        "Dance"))
-                        ,"znrEGeYsq9s"
+                        "Reggaeton"
+                        ,"Salsa"))
+                        ,"VMp55KH_3wo"
                 ));
 
     }
