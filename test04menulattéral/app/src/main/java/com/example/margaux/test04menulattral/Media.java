@@ -93,6 +93,19 @@ public class Media {
                             "AronChupa"))
                         ,new ArrayList<String>(Arrays.asList(
                             "Dance"))
+                        ,"znrEGeYsq9s"
+                ));
+        musics.add(
+                new MusicRow(
+                        "Grandpa's Groove"
+                        ,getPoster(context,R.drawable.grandpa_s_groove)
+                        ,"2016"
+                        ,"Parov Stelar"
+                        ,new ArrayList<String>(Arrays.asList(
+                        "AronChupa"))
+                        ,new ArrayList<String>(Arrays.asList(
+                        "Dance"))
+                        ,"znrEGeYsq9s"
                 ));
 
     }
@@ -115,7 +128,6 @@ public class Media {
     }
 
     public static Spanned fromMyHtml(String html){
-        //html = String.format(("<![CDATA["+html+"]]>"));;
         Spanned result;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
@@ -138,6 +150,6 @@ public class Media {
         for (String s:list) {
             myString+=s+", ";
         }
-        return myString.substring(0, myString.length()-3);//enlève la dernière virgule
+        return myString.substring(0, myString.length()-2);//enlève la dernière virgule
     }
 }

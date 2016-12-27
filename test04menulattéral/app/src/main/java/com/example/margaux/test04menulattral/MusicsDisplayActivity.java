@@ -9,20 +9,17 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 /**
  * Created by margaux on 23/12/2016.
  */
 
 public class MusicsDisplayActivity extends Activity {
     public ListView listMedia;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.medias_display);
-
         listMedia = (ListView)findViewById(R.id.list_media);
 
         Media myMedia = new Media(this);
